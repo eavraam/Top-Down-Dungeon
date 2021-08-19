@@ -9,7 +9,7 @@ public class Collidable : MonoBehaviour
     private BoxCollider2D boxCollider;
     private Collider2D[] hits = new Collider2D[10];
 
-    protected void Start()
+    protected virtual void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
     }
@@ -32,6 +32,6 @@ public class Collidable : MonoBehaviour
 
     protected virtual void OnCollide(Collider2D col)
     {
-        Debug.Log(col.name);
+        Debug.Log("OnCollide was not implemented in: " + this.name);
     }
 }
