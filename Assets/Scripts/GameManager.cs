@@ -7,6 +7,22 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    //Resources
+    public List<Sprite> playerSprites;
+    public List<Sprite> weaponSprites;
+    public List<int> weaponPrices;
+    public List<int> expTable;
+
+    //References
+    public Player player;
+    public Weapon weapon;
+    public FloatingTextManager floatingTextManager;
+
+    //Logic
+    public int gold;
+    public int experience;
+
+    // AWAKE Function
     private void Awake()
     {
         /* If I run the code below and accidentally Load the current
@@ -33,25 +49,30 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    //Resources
-    public List<Sprite> playerSprites;
-    public List<Sprite> weaponSprites;
-    public List<int> weaponPrices;
-    public List<int> expTable;
-
-    //References
-    public Player player;
-    public FloatingTextManager floatingTextManager;
-
-    //Logic
-    public int gold;
-    public int experience;
-
     //Floating text
     public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
     {
         floatingTextManager.Show(msg, fontSize, color, position, motion, duration);
     }
+
+    // Upgrade Weapon
+    public bool TryUpgradeWeapon()
+    {
+        // Is the Weapon Max Level?
+        if(weaponPrices.Count <= weapon.weaponLevel)
+            return false;
+
+        if (gold >= weaponPrices[weapon.weaponLevel])
+        {
+            gold -= weaponPrices[weapon.weaponLevel];
+            weapon.UpgradeWeapon();
+            return true;
+        }
+
+        return false;
+        
+    }
+
 
     //Save State
     /*
@@ -67,7 +88,7 @@ public class GameManager : MonoBehaviour
         s += "0" + "|";
         s += gold.ToString() + "|";
         s += experience.ToString() + "|";
-        s += "0";
+        s += weapon.weaponLevel.ToString();
 
         PlayerPrefs.SetString("SaveState", s);
 
@@ -113,7 +134,7 @@ public class GameManager : MonoBehaviour
         //Change Player Skin
         gold = int.Parse(data[1]);
         experience = int.Parse(data[2]);
-        //Change Weapon Level
+        weapon.weaponLevel = int.Parse(data[3]);
 
         Debug.Log("Load State.");
     }
