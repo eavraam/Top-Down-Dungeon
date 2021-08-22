@@ -42,6 +42,7 @@ public class CharacterMenu : MonoBehaviour
     private void OnSelectionChanged()
     {
         characterSelectionSprite.sprite = GameManager.instance.playerSprites[currentCharacterSelection];
+        GameManager.instance.player.SwapSprite(currentCharacterSelection);
     }
 
     // Weapon Upgrade
@@ -58,16 +59,35 @@ public class CharacterMenu : MonoBehaviour
     {
         // Weapon
         weaponSprite.sprite = GameManager.instance.weaponSprites[GameManager.instance.weapon.weaponLevel];
-        upgradeCostText.text = "NOT IMPLEMENTED";
+        if (GameManager.instance.weapon.weaponLevel == GameManager.instance.weaponPrices.Count)
+            upgradeCostText.text = "MAX";
+        else
+            upgradeCostText.text = GameManager.instance.weaponPrices[GameManager.instance.weapon.weaponLevel].ToString();
 
         //Meta
-        levelText.text = "NOT IMPLEMENTED";
+        levelText.text = GameManager.instance.GetCurrentLevel().ToString();
         hitpointText.text = GameManager.instance.player.hitpoint.ToString();
         goldText.text = GameManager.instance.gold.ToString();
 
         // Exp Bar
-        expText.text = "NOT IMPLEMENTED";
-        expBar.localScale = new Vector3(0.5f, 0, 0);
+        int currentLevel = GameManager.instance.GetCurrentLevel();
 
+        if (currentLevel == GameManager.instance.expTable.Count)
+        {
+            expText.text = GameManager.instance.experience.ToString() + " total experience points"; // Display total exp if we reached MAX Level
+            expBar.localScale = Vector3.one;
+        }
+        else
+        {
+            int prevLevelExp = GameManager.instance.GetExpToLevel(currentLevel - 1);
+            int currentLevelExp = GameManager.instance.GetExpToLevel(currentLevel);
+
+            int diff = currentLevelExp - prevLevelExp;
+            int currentExpToLevel = GameManager.instance.experience - prevLevelExp;
+
+            float completionRatio = (float) currentExpToLevel / (float) diff;
+            expBar.localScale = new Vector3(completionRatio, 1, 1);
+            expText.text = currentExpToLevel.ToString() + " / " + diff;
+        }
     }
 }

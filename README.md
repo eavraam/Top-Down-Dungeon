@@ -24,6 +24,6 @@ Combat System
 Animator and Swing Animation
 
 --- STEP 8 ---
-Character Menu and UI System (needs to be completed)
+Character Menu and UI System
 
 --- STEP 9 ---

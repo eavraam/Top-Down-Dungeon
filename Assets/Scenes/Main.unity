@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8584906, g: 0.13363297, b: 0.7455126, a: 1}
+  m_Color: {r: 0.49803922, g: 0, b: 0.54901963, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -13175,7 +13175,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 290972126}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1788571701}
+        m_MethodName: OnArrowClick
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &290972126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13597,7 +13608,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &727554591
 GameObject:
@@ -15686,7 +15697,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1073321158}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1788571701}
+        m_MethodName: OnArrowClick
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1073321158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15805,7 +15827,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1130543017
 BoxCollider2D:
@@ -16106,7 +16128,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1334081725
 MonoBehaviour:
@@ -16120,7 +16142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98bc47224898ea848af12ffcc78ae049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSprites: []
+  playerSprites:
+  - {fileID: 4018074224661003100, guid: 07369bd1d18e4464d920dcc3394329cd, type: 3}
+  - {fileID: -4869357254534750094, guid: 07369bd1d18e4464d920dcc3394329cd, type: 3}
+  - {fileID: -69871916218363647, guid: 07369bd1d18e4464d920dcc3394329cd, type: 3}
+  - {fileID: 1839998147110866507, guid: 07369bd1d18e4464d920dcc3394329cd, type: 3}
   weaponSprites:
   - {fileID: -1988828135353101337, guid: 07369bd1d18e4464d920dcc3394329cd, type: 3}
   - {fileID: 4971049064686688367, guid: 07369bd1d18e4464d920dcc3394329cd, type: 3}
@@ -16130,7 +16156,7 @@ MonoBehaviour:
   - {fileID: -9052792337493064725, guid: 07369bd1d18e4464d920dcc3394329cd, type: 3}
   - {fileID: -7870807981238829915, guid: 07369bd1d18e4464d920dcc3394329cd, type: 3}
   weaponPrices: 1e0000004600000082000000c80000001801000090010000
-  expTable: 
+  expTable: 050000000a00000011000000190000001e0000002800000037000000460000005a00000078000000
   player: {fileID: 2000883243}
   weapon: {fileID: 317210292}
   floatingTextManager: {fileID: 881274845}
@@ -17096,7 +17122,7 @@ Transform:
   m_Children:
   - {fileID: 317210290}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2000883243
 MonoBehaviour:
@@ -17183,7 +17209,7 @@ Transform:
   - {fileID: 2077739305}
   - {fileID: 773731689}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2033722055
 GameObject:
@@ -19055,7 +19081,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2125951276
 MonoBehaviour:
@@ -19202,7 +19228,7 @@ PrefabInstance:
     - target: {fileID: 7171949457536077809, guid: 3301408b8e6e698479729ff5dc614c24,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7171949457536077809, guid: 3301408b8e6e698479729ff5dc614c24,
         type: 3}

@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
          *   DontDestroyOnLoad gameObject. If yes, destroy itself.
          *   */
 
-        if(GameManager.instance != null)
+        if (GameManager.instance != null)
         {
             Destroy(gameObject);
             return;
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     public bool TryUpgradeWeapon()
     {
         // Is the Weapon Max Level?
-        if(weaponPrices.Count <= weapon.weaponLevel)
+        if (weaponPrices.Count <= weapon.weaponLevel)
             return false;
 
         if (gold >= weaponPrices[weapon.weaponLevel])
@@ -70,8 +70,54 @@ public class GameManager : MonoBehaviour
         }
 
         return false;
-        
+
     }
+
+    // Experience System
+    public int GetCurrentLevel()
+    {
+        int r = 0;
+        int add = 0;
+
+        while (experience >= add)
+        {
+            add += expTable[r];
+            r++;
+
+            if (r == expTable.Count) // Reached Max Level
+                return r;
+        }
+
+        return r;
+    }
+    public int GetExpToLevel(int level)
+    {
+        int r = 0;
+        int exp = 0;
+
+        while (r < level)
+        {
+            exp += expTable[r];
+            r++;
+        }
+
+        return exp;
+    }
+    public void GrantExp(int exp)
+    {
+        int currentLevel = GetCurrentLevel();
+        experience += exp;
+        if (currentLevel < GetCurrentLevel())
+        {
+            OnLevelUp();
+        }
+    }
+    public void OnLevelUp()
+    {
+        player.OnLevelUp();
+    }
+
+
 
 
     //Save State
@@ -92,20 +138,8 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetString("SaveState", s);
 
-        /* Can also be done with a Struct/Class that has all the needed info,
-         * then JsonUtility.ToJson(..mentioned Class instance..),
-         * and finally Save with PlayerPrefs(JSON). (As shown below in example)
-         */
-        //PlayerData _playerData = new PlayerDate();
-        //void WritePlayerDataWithJson()
-        //{
-        //    var jsonData = JsonUtility.ToJson(_playerData);
-        //    PlayerPrefs.SetString("PlayerData", jsonData);
-        //}
-
         Debug.Log("Save State.");
     }
-
     //Load State
     public void LoadState(Scene s, LoadSceneMode mode)
     {
@@ -115,26 +149,18 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-
         string[] data = PlayerPrefs.GetString("SaveState").Split('|');
 
-        /*
-         * In case of JSON save, we load using FromJson to get a Json,
-         * and save it in a list. (As shown below in example)
-         * 
-         * REMINDER: Read- and WritePlayerDataWithJson() should be inside the same
-         * class and must be able to see _playerData instance.
-         */
-        //void ReadPlayerDataWithJson()
-        //{
-        //    var jsonFromPrefs = PlayerPrefs.GetString("PlayerData");
-        //    _playerData = JsonUtility.FromJson<PlayerData>(jsonFromPrefs);
-        //}
+        // -----Change Player Skin-----
 
-        //Change Player Skin
+        // Load Gold
         gold = int.Parse(data[1]);
+        // Load Experience Properly
         experience = int.Parse(data[2]);
-        weapon.weaponLevel = int.Parse(data[3]);
+        if(GetCurrentLevel() != 1)
+            player.SetLevel(GetCurrentLevel());
+        // Load Weapon
+        weapon.SetWeaponLevel(int.Parse(data[3]));
 
         Debug.Log("Load State.");
     }
