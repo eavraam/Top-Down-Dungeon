@@ -20,6 +20,14 @@ Floating Text System
 --- STEP 6 ---
 Combat System
 
---- STEP X ---
+--- STEP 7 ---
+Animator and Swing Animation
 
+--- STEP 8 ---
+Character Menu and UI System
+
+--- STEP 9 ---
+Added Content (Crates, Torches, etc.)
+
+--- STEP 10 ---
 

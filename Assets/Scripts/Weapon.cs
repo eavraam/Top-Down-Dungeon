@@ -6,8 +6,8 @@ public class Weapon : Collidable
 {
 
     //Damage structure
-    public int damagePoint = 1;
-    public float pushForce = 2.0f;
+    public int[] damagePoint = { 1, 2, 3, 4, 5, 6, 7, 8 };
+    public float[] pushForce = { 2.0f, 2.2f, 2.5f, 2.9f, 3.2f, 3.7f, 4.0f, 4.5f };
 
     //Upgrade
     public int weaponLevel = 0;
@@ -17,6 +17,11 @@ public class Weapon : Collidable
     private Animator anim;
     private float cooldown = 0.5f;
     private float lastSwing;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     protected override void Start()
     {
@@ -50,9 +55,9 @@ public class Weapon : Collidable
             //Create a new Damage Object, then send it to the fighter we 've hit
             Damage dmg = new Damage
             {
-                damageAmount = damagePoint,
+                damageAmount = damagePoint[weaponLevel],
                 origin = transform.position,
-                pushForce = pushForce
+                pushForce = pushForce[weaponLevel]
             };
 
             col.SendMessage("ReceiveDamage", dmg);
@@ -65,5 +70,17 @@ public class Weapon : Collidable
     private void Swing()
     {
         anim.SetTrigger("Swing");
+    }
+
+    public void UpgradeWeapon()
+    {
+        weaponLevel++;
+        spriteRenderer.sprite = GameManager.instance.weaponSprites[weaponLevel];
+    }
+
+    public void SetWeaponLevel(int level)
+    {
+        weaponLevel = level;
+        spriteRenderer.sprite = GameManager.instance.weaponSprites[weaponLevel];
     }
 }
