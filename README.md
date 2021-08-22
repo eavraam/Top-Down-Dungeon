@@ -27,3 +27,7 @@ Animator and Swing Animation
 Character Menu and UI System
 
 --- STEP 9 ---
+Added Content (Crates, Torches, etc.)
+
+--- STEP 10 ---
+

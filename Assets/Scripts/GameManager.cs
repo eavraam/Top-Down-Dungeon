@@ -39,10 +39,10 @@ public class GameManager : MonoBehaviour
         if (GameManager.instance != null)
         {
             Destroy(gameObject);
+            Destroy(player.gameObject);
+            Destroy(floatingTextManager.gameObject);
             return;
         }
-
-
 
         instance = this;
         SceneManager.sceneLoaded += LoadState;
@@ -118,8 +118,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
-
     //Save State
     /*
      * INT preferedSkin
@@ -162,6 +160,6 @@ public class GameManager : MonoBehaviour
         // Load Weapon
         weapon.SetWeaponLevel(int.Parse(data[3]));
 
-        Debug.Log("Load State.");
+        player.transform.position = GameObject.Find("SpawnPoint").transform.position;
     }
 }
