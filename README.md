@@ -30,4 +30,4 @@ Character Menu and UI System
 Added Content (Crates, Torches, etc.)
 
 --- STEP 10 ---
-
+Added a Boss, Fixed the last bugs
