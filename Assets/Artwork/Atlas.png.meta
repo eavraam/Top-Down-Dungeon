@@ -204,7 +204,7 @@ TextureImporter:
       213: 4289113178680934050
     second: enemy_1
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -224,6 +224,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -233,8 +235,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -255,10 +257,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -286,6 +292,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1716,6 +1734,74 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      pillar_1: -9037411367760340442
+      chest_0: -2386295036631077607
+      stairs_0: 5894979182433546639
+      weapon_2: 4204374477710404856
+      wall_0: -6721728136321296765
+      torch_0: 3235062197104327778
+      stairs_1: 4355180666568580090
+      floor_7: -2834699621007424056
+      wall_1: 7870480730772048316
+      floor_5: -9106852675655700425
+      torch_2: 5035139237759867391
+      pillar_2: -2285114424382770006
+      player_0: 4018074224661003100
+      floor_4: -8369517905372312421
+      wall_3: -5599750456436461424
+      wall_5: -4272707242783423304
+      weapon_7: -7548257428066557718
+      player_3: 1839998147110866507
+      torch_6: 4596313960938759734
+      crate_2: 2592197434785513267
+      weapon_3: -3149050133103254212
+      healingFountain_0: 5327950094024008212
+      torch_3: 7214893647509974784
+      crate_3: 2466828561161279858
+      wall_8: -3513202607186615407
+      floor_2: -1291705123832498677
+      floor_10: -4446556834619780616
+      healingFountain_1: 6615319868462110837
+      chest_1: -6613792370922084840
+      enemy_0: 3059076114534577413
+      torch_4: -7479814810284170135
+      boss_0: -8143584818952536569
+      player_2: -69871916218363647
+      weapon_5: -9052792337493064725
+      pillar_3: -6026731920720571777
+      menu_0: 5330871289308464701
+      floor_6: 745968338076216934
+      crate_0: 8970763576347242229
+      wall_9: -9198928466637730507
+      torch_5: -7424474914276003461
+      torch_1: 6913638643635410091
+      floor_0: -7826287199498012479
+      player_1: -4869357254534750094
+      weapon_0: -1988828135353101337
+      enemy_1: 4289113178680934050
+      pillar_4: -2016447386726003157
+      weapon_1: 4971049064686688367
+      wall_2: -407774699277236136
+      wall_6: 1726203059708922746
+      healingFountain_2: -1347233719151212251
+      floor_8: -2217874986795218178
+      floor_11: -2151125692419375991
+      torch_7: 219433517873854331
+      torch_8: 4101294306171259788
+      floor_9: 2748396297729853354
+      floor_1: 3823991837180300354
+      wall_4: -7450669156800766785
+      weapon_4: -5574873882498854606
+      floor_12: 7029400602700474323
+      stairs_2: -7503008079389545076
+      floor_3: 7182614658172301277
+      pillar_5: 620111541035404702
+      stairs_3: -7566632554201152900
+      pillar_0: 8340130823153958410
+      wall_7: 3628468241054914511
+      weapon_6: -7870807981238829915
+      crate_1: 2185041290902523119
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
