@@ -34,4 +34,4 @@ There is a strategical treasure chest located on the down-right corner of the bo
 
 On fatal damage, meaning when the Player's hp reaches 0, a death screen appears. If the Player wishes to return to the game, the click on "Respawn", which respawns the Player on level 1 with full hp, keeping the gained gold, experience and weapon level.
 
-<img src="repo_images/bossfightReward.png" width="500" height="226">
+<img src="repo_images/deathScreen.png" width="500" height="226">
