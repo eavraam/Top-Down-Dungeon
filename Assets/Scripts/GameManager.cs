@@ -169,6 +169,16 @@ public class GameManager : MonoBehaviour
     //Load State
     public void LoadState(Scene s, LoadSceneMode mode)
     {
+		// This command is for deleting the existing progress when starting the Game.
+        // However, it keeps the in-game progress while playing.
+        // This is to ensure the "New Game" in the demo, and not storing the progress.
+
+        Debug.Log("New Game Mode initiated through: GameManager.cs > PlayerPrefs.DeleteAll(); when starting the game.\n" +
+                    "Current in-game progress is stored properly. If you close the game, you will start over." +
+                    "This happens to ensure the 'New Game' functionality when loading the demo multiple times. It is a very short demo after all.");
+      
+        PlayerPrefs.DeleteAll();
+		
         SceneManager.sceneLoaded -= LoadState;
 
 
